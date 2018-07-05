@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+
+  {% if title %}
+    <title>{{ title }} - GrandPyBot</title>
+  {% else %}
+    <title>Robby the GrandPyBot</title>
+  {% endif %}
+
+</head>
+
+<body>
+
+  <header>
+    <h1>Robby the GrandPyBot</h1>
+    <h1>GrandPyBot</h1>
+
+    <h2>Parle-moi de la Terre Robby...</h2>
+  </header>
+
+  {% block content %}{% endblock %}
+
+  <footer>
+    <p>
+      Build from scratch by Loïc Mangin. Source code on <a href="https://github.com/Louis-Gabriel-TM/P7_GrandPyBot">GitHub</a>.
+    </p>
+  </footer>
+
+</body>
+
+</html>
