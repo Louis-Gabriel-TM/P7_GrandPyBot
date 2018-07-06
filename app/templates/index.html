@@ -2,7 +2,19 @@
 
 {% block content %}
 
-  <div id="chatbox"></div>
+  <div id='chatbox'>
+
+    <form method='post' action='/' novalidate>
+      {{ form.hidden_tag() }}
+      <p>
+        {{ form.user_request.label }}
+        <br>
+        {{ form.user_request(size=96) }}
+        {{ form.submit() }}
+      </p>
+    </form>
+
+  </div>  
 
   <form></form>
 
