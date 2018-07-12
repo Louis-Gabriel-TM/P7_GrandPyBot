@@ -1,21 +1,58 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
 
-{% block content %}
+<html lang="fr">
+
+<head>
+
+  <meta charset="utf-8">
+  <title>Robby the GrandPy Bot</title>
+
+  <link rel="icon" type="image/png" href="../static/img/favicon.ico" />
+
+</head>
+
+<body>
+
+  <header>
+    <a href="/index"><img src="../static/img/logo.jpg"></a>
+
+    <h1>Robby the GrandPy Bot</h1>
+
+    <h2>Parle-moi de la Terre Robby...</h2>
+
+    <hr>
+  </header>
 
   <div id='chatbox'>
+    <div id='chatwindow'>
+      <div id='map'></div>
+    </div>
 
-    <form method='post' action='/' novalidate>
-      {{ form.hidden_tag() }}
+    <br>
+
+    <div id="chatform">
       <p>
-        {{ form.user_request.label }}
-        <br>
-        {{ form.user_request(size=96) }}
-        {{ form.submit() }}
+        <input id="user_query" type="text" size = 48 
+        placeholder="Dis-moi Robby, ..." autofocus>
+        <input id="submit" type="button" value="Dire">
       </p>
-    </form>
+    </div>
+  </div>
 
-  </div>  
+  <footer>
+    <hr>
 
-  <form></form>
+    <p>
+      Build from scratch by Loïc Mangin. Source code on <a href="https://github.com/Louis-Gabriel-TM/P7_GrandPyBot">GitHub</a>.
+    </p>
+  </footer>
 
-{% endblock %}
+  <script src="https://code.jquery.com/jquery.min.js"></script>
+  <script src="../static/js/ajax.js"></script>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key={{ GMAPS_KEY }}&callback=initMap">
+  </script>
+
+</body>
+
+</html>
