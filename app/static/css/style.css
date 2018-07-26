@@ -1,0 +1,6 @@
+#chatwindow {
+    height: 300px;
+    width: 480px;
+    border: 3px solid darkgreen;
+    background-color: lightgreen;
+}

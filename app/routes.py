@@ -2,7 +2,7 @@
 # coding: utf-8
 
 
-from flask import flash, render_template
+from flask import flash, jsonify, render_template, request
 
 from app import app
 from app.forms import ChatForm
@@ -30,3 +30,7 @@ def index():
         flash("Robby a récupéré les infos suivantes : {}".format(extract))
 
     return render_template('index.html', form=form)
+
+@app.route('/ajax', methods=['POST'])
+def ajax_request():
+    return jsonify("Bien reçu !")
