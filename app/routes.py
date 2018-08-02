@@ -9,6 +9,7 @@ from app.forms import ChatForm
 from .tools.parser import Parser
 from .tools.ask_gmaps import GMapsRequest
 from .tools.ask_wiki import WikiRequest
+from .tools.credentials import *
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -33,4 +34,7 @@ def index():
 
 @app.route('/ajax', methods=['POST'])
 def ajax_request():
-    return jsonify("Bien reçu !")
+    print("Contenu de la requête =", request.json)
+    print("GMAPS_KEY =", GMAPS_KEY)
+    parser = Parser()
+    return "IN PROGRESS"

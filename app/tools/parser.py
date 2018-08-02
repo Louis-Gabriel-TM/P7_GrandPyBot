@@ -6,8 +6,8 @@ import json
 
 
 class Parser:
-    def __init__(self, words_file='app/tools/parsing_words.json'):
-        with open(words_file, encoding='utf-8') as f:
+    def __init__(self):
+        with open('app/tools/parsing_words.json', encoding='utf-8') as f:
             parsing_words = json.loads(f.read())
         self.punctuation = parsing_words["punctuation"]
         self.stopwords = parsing_words["stopwords"]
@@ -24,7 +24,7 @@ class Parser:
 
 def main():
     print("START")
-    ps = Parser('parsing_words.json')
+    ps = Parser()
     test_sentences = [
         "",
         "Dites-moi, à qui est ce petit Bulldog dans la vitrine ?",

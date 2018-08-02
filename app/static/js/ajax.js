@@ -1,22 +1,32 @@
-$('#submit').on('click', function() {
+function useResponse(msg) {
+    console.log("Le serveur Python a renvoyé : " + msg);
+}
+
+function ajaxPost(url, data, callback) {
     var req = new XMLHttpRequest();
-
-    req.onreadystatechange = function() {
-        if (req.readySate === XMLHttpRequest.DONE) {
-            // A MODIFIER EN PRODUCTION : éliminer req.status === 0
-            if (req.status === 200 || req.status === 0) {
-                alert("Le serveur Python a renvoyé : ", req.reponseText);
-            }
+    req.open('POST', url);
+      
+    req.addEventListener('load', function() {
+        // A MODIFIER EN PRODUCTION : supprimer req.status === 0
+        if ((req.status >= 200 && req.status < 400) || req.status === 0) {
+            callback(req.responseText);
+        } else {
+            console.error(req.status + " " + req.statusText + " " + url);
         }
-    }
+    });
 
-    req.open('POST', '/ajax')
-    req.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    req.addEventListener('error', function() {
+        console.error("Erreur réseau avec l'URL " + url);
+    });
 
-    var query = document.getElementById('user_query').value;
-    alert("vous avez saisi : " + query);
+    req.send(data);
+}
 
-    req.send(query)
+$('#submit').on('click', function() {
+    // Capture saisie utilisateur
+    var user_query = document.getElementById('user_query').value;
 
-    alert("Requête envoyée !")
+    console.log("vous avez saisi : " + user_query);
+
+    ajaxPost('/ajax', user_query, useResponse);
 })

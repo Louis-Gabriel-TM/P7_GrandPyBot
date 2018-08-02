@@ -5,6 +5,9 @@
 import requests
 
 class WikiRequest:
+
+    # REQUETE POSSIBLE SELON COORDONNEES ?
+
     URL_BASE = "https://fr.wikipedia.org/w/api.php?" \
                 + "action=opensearch&" \
                 + "limit=1&search="

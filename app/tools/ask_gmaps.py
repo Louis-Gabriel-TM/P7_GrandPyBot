@@ -5,13 +5,14 @@
 import os
 import requests
 
-from .credentials import *
+#from app.tools.credentials import *
 
 
 class GMapsRequest:
     URL_BASE = "https://maps.googleapis.com/maps/api/geocode/json?address="
 
     def __init__(self, parsed_request):
+        print("GMAPS_KEY =", GMAPS_KEY)
         self.question = ".".join(parsed_request.split())
         self.url = GMapsRequest.URL_BASE + self.question + \
             "&key=" + GMAPS_KEY
