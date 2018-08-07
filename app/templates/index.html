@@ -25,6 +25,7 @@
   <div id='chatbox'>
     <div id='chatwindow'>
       <div id='map'></div>
+      <div id='extract'></div>
     </div>
 
     <br>
@@ -44,13 +45,13 @@
     <p>
       Build from scratch by Loïc Mangin. Source code on <a href="https://github.com/Louis-Gabriel-TM/P7_GrandPyBot">GitHub</a>.
     </p>
-    <p>GMAPS KEY = {{ GMAPS_KEY }}</p>
   </footer>
 
   <script src="https://code.jquery.com/jquery.min.js"></script>
-  <script src="../static/js/ajax.js"></script>
+  <script type="text/javascript" src="../static/js/gmaps.js"></script>
+  <script type="text/javascript" src="../static/js/ajax.js"></script>
   <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key={{ GMAPS_KEY }}&callback=initMap">
+    src="https://maps.googleapis.com/maps/api/js?key={{ key }}&callback=initMap">
   </script>
 </body>
 

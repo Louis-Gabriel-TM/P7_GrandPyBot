@@ -9,32 +9,40 @@ from app.forms import ChatForm
 from .tools.parser import Parser
 from .tools.ask_gmaps import GMapsRequest
 from .tools.ask_wiki import WikiRequest
-from .tools.credentials import *
+from .tools.credentials import GMAPS_KEY
 
 
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
 def index():
     form = ChatForm()
-    ps = Parser()
-
-    if form.validate_on_submit():
-        to_api = ps.clean(form.user_request.data)
-        flash("Robby vous as entendu et retient : {}".format(to_api))
-
-        gm = GMapsRequest(to_api)
-        coord = gm.get_coord()
-        flash("Robby a obtenu les coordonnées {}".format(coord))
-
-        wk = WikiRequest(to_api)
-        extract = wk.get_extract()
-        flash("Robby a récupéré les infos suivantes : {}".format(extract))
-
-    return render_template('index.html', form=form)
+    return render_template('index.html', form=form, key=GMAPS_KEY)
 
 @app.route('/ajax', methods=['POST'])
 def ajax_request():
-    print("Contenu de la requête =", request.json)
-    print("GMAPS_KEY =", GMAPS_KEY)
+
+    user_query = request.data.decode('utf-8')
+    print("Contenu de la requête =", user_query)
+    
     parser = Parser()
-    return "IN PROGRESS"
+    cleaned_query = parser.clean(user_query)
+    print("Requête nettoyée = ", cleaned_query)
+    
+    gmaps_request = GMapsRequest(cleaned_query)
+    coord = gmaps_request.get_coord()
+    print(coord)
+
+    wiki_request = WikiRequest(coord['lat'], coord['lng'])
+    extract = wiki_request.extract
+    print(extract)
+    
+    response = {
+            'coord': {
+                    'lat': coord['lat'],
+                    'lng': coord['lng'],
+                },
+            'extract': extract
+    }
+    print(response)
+
+    return jsonify(response)

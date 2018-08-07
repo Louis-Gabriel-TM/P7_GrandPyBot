@@ -1,8 +1,17 @@
-function useResponse(msg) {
-    console.log("Le serveur Python a renvoyé : " + msg);
+function responseTreatment(data) {
+
+    var data = JSON.parse(data);
+
+    console.log("Le serveur Python a renvoyé :", data);
+
+    initMap(data['coord']);
+
+    var extract = document.getElementById('extract');
+    extract.textContent = data['extract'];
 }
 
 function ajaxPost(url, data, callback) {
+
     var req = new XMLHttpRequest();
     req.open('POST', url);
       
@@ -23,10 +32,11 @@ function ajaxPost(url, data, callback) {
 }
 
 $('#submit').on('click', function() {
+
     // Capture saisie utilisateur
     var user_query = document.getElementById('user_query').value;
 
     console.log("vous avez saisi : " + user_query);
 
-    ajaxPost('/ajax', user_query, useResponse);
+    ajaxPost('/ajax', user_query, responseTreatment);
 })
