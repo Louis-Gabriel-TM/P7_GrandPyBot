@@ -1,18 +1,90 @@
+/* GRID DEBUG */
+/*
+[class*="col-"] {
+    border: 1px solid lemonchiffon;
+}
+*/
+
+/* body, h1-h6 */
+body {
+    background-image: url("../img/background.jpg");
+    background-color: black;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: rgba(166, 228, 165, 0.8); /* monochrome vert clair */
+}
+
+h1 {
+    font-family: "Courier New";
+    font-weight: bold;
+}
+
+h2 {
+    font-style: italic;
+    font-size: 2em;
+}
+
+/* Header zone */
+header {
+    background-image: linear-gradient(black, rgb(8, 63, 23));
+    padding: 10px 0 10px 0;
+    margin-bottom: 20px;
+    border-bottom: solid 2px rgba(166, 228, 165, 0.3);
+}
+
+#logo {
+    background-image: url("../img/logo.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 120px;
+
+}
+
+/* Chat zone */
 #chatwindow {
-    height: 300px;
-    width: 480px;
-    border: 3px solid darkgreen;
-    background-color: lightgreen;
+    background-color: rgba(8, 63, 23, 0.7); /* vert monochrome foncé */
+    border: solid 2px rgba(166, 228, 165, 0.8);
+    border-radius: 10px;
+    height: 600px;
+    margin: 10px 0 10px 0;
 }
 
 #map {
-    height: 72%;
-    width: 96%;
-    margin: 2%;
+    width: 90%;
+    height: 240px;
+    margin: 10px;
+    border-radius: 10px;
 }
 
-#extract {
-    height: 20%;
-    width: 96%;
-    margin: 2%;
+#chatform {
+    margin: 20px 0 20px 0;
+    font-size: 1.3em;
+}
+
+input {
+    background-color: rgba(167, 90, 77, 0.7); /* terre claire */
+    color: rgba(246, 206, 170); /* parme clair */
+    border-radius: 10px;
+    padding: 5px;
+    color: rgba(246, 206, 170); /* parme clair */
+}
+
+#user_query {
+    background-color: rgba(167, 90, 77, 0.7); /* terre claire */
+}
+
+#submit {
+    background-color: rgba(197, 90, 77, 1); /* terre claire vive */
+    color: rgba(255, 216, 180); /* parme clair */
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+/* Footer */
+footer {
+    background-image: linear-gradient(to top, black, rgb(8, 63, 23));
+    padding: 10px 0 10px 0;
+    margin-top: 20px;
+    border-top: solid 2px rgba(166, 228, 165, 0.3);
+    font-size: 0.8em;
 }

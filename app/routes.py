@@ -26,11 +26,11 @@ def ajax_request():
     
     parser = Parser()
     cleaned_query = parser.clean(user_query)
-    print("Requête nettoyée = ", cleaned_query)
+    print("Requête nettoyée =", cleaned_query)
     
     gmaps_request = GMapsRequest(cleaned_query)
     coord = gmaps_request.get_coord()
-    print(coord)
+    print("Coordonnées GMpas =", coord)
 
     wiki_request = WikiRequest(coord['lat'], coord['lng'])
     extract = wiki_request.extract
