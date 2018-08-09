@@ -30,12 +30,13 @@ def ajax_request():
     
     gmaps_request = GMapsRequest(cleaned_query)
     coord = gmaps_request.get_coord()
-    print("Coordonnées GMpas =", coord)
-
-    wiki_request = WikiRequest(coord['lat'], coord['lng'])
-    extract = wiki_request.extract
-    print(extract)
+    print("Coordonnées GMaps =", coord)
     
+    wiki_request = WikiRequest(coord['lat'], coord['lng'])
+    pageid = wiki_request.get_pageid()
+    extract = wiki_request.extract
+    print("PAGE =", pageid, " >>>", extract)
+        
     response = {
             'coord': {
                     'lat': coord['lat'],

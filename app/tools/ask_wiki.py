@@ -24,12 +24,19 @@ class WikiRequest:
 
     def get_pageid(self):
         url = WikiRequest.BASE_PAGEID.format(self.latitude, self.longitude)
-        return requests.get(url).json()['query']['geosearch'][0]['pageid']
+        wiki_data = requests.get(url).json()
+        if wiki_data:
+            return wiki_data['query']['geosearch'][0]['pageid']
+        else:
+            return None
 
     def get_extract(self):
         url = WikiRequest.BASE_EXTRACT.format(self.page_id)
-        return requests.get(url).json()[
-                'query']['pages'][str(self.page_id)]['extract']
+        wiki_data = requests.get(url).json()
+        if wiki_data:
+            return wiki_data['query']['pages'][str(self.page_id)]['extract']
+        else:
+            return None
 
 
 def main():

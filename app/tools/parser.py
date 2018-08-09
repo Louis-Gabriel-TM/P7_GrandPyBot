@@ -11,7 +11,7 @@ class Parser:
             parsing_words = json.loads(f.read())
         self.punctuation = parsing_words["punctuation"]
         self.stopwords = parsing_words["stopwords"]
-        #self.way_types = parsing_words["way_types"]
+        #self.way_types = parsing_words["way_types"] 
 
     def clean(self, sentence):
         sentence = sentence.lower()
@@ -22,21 +22,5 @@ class Parser:
         return sentence
 
 
-def main():
-    print("START")
-    ps = Parser()
-    test_sentences = [
-        "",
-        "Dites-moi, à qui est ce petit Bulldog dans la vitrine ?",
-        "Où se trouve le Boulevard de la Reine 78 000 Versailles ?",
-        "Montre-moi le 14, avenue des Champs-Elysées ?",
-        "5, rue du boulevard de Paris 75014"
-        ]
-    for sentence in test_sentences:
-        print()
-        print(sentence)
-        print(ps.clean(sentence))
-
-
 if __name__ == "__main__":
-    main()
+    pass

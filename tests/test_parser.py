@@ -4,7 +4,7 @@
 
 import pytest
 
-from parser import Parser
+from app.tools.parser import Parser
 
 
 class TestParser:
@@ -13,6 +13,11 @@ class TestParser:
 
     def test_clean(self):
         assert self.ps.clean("") == ""
+        assert self.ps.clean("Où donc, dis-moi ?") == ""
+        assert self.ps.clean("Paris") == "paris"
+        assert self.ps.clean(
+            "Dis-moi Robby, où se trouve la tour Eiffel ?"
+            ) == "robby trouve tour eiffel"
 
 
 if __name__ == "__main__":

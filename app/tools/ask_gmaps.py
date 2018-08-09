@@ -6,7 +6,7 @@ import os
 import requests
 
 from app.tools.credentials import GMAPS_KEY
-
+#from credentials import GMAPS_KEY
 
 class GMapsRequest:
     URL_BASE = "https://maps.googleapis.com/maps/api/geocode/json?address="
@@ -29,13 +29,11 @@ class GMapsRequest:
 
 
 def main():
-    test = GMapsRequest("où trouve boulevard reine 78000 versailles")
-    print()
-    print("URL >>>", test.url)
-    print()
-    print("API_DATA >>>", test.get_data())
-    print()
-    print("COORD >>>",test.get_coord())
+    test = GMapsRequest("Dis-moi Robby, où se trouve la tour Eiffel ?")
+    print("\nREQUEST URL >>>", test.url,
+        "\nAPI_DATA >>>", test.get_data(),
+        "\nCOORD >>>",test.get_coord()
+        )
 
 
 if __name__ == "__main__":
