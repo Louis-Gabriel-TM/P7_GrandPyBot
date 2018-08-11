@@ -33,8 +33,8 @@ def ajax_request():
     print("Coordonnées GMaps =", coord)
     
     wiki_request = WikiRequest(coord['lat'], coord['lng'])
-    pageid = wiki_request.get_pageid()
-    extract = wiki_request.extract
+    pageid = wiki_request.page_id
+    extract = wiki_request.extract # un seul appel de méthode
     print("PAGE =", pageid, " >>>", extract)
         
     response = {

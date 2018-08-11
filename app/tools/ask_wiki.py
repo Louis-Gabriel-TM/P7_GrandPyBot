@@ -19,33 +19,42 @@ class WikiRequest:
     def __init__(self, latitude, longitude):
         self.latitude = latitude
         self.longitude = longitude
-        self.page_id = self.get_pageid()
-        self.extract = self.get_extract()
+        self.page_id = None
+        self.extract = None
 
-    def get_pageid(self):
-        url = WikiRequest.BASE_PAGEID.format(self.latitude, self.longitude)
-        wiki_data = requests.get(url).json()
-        if wiki_data:
-            return wiki_data['query']['geosearch'][0]['pageid']
-        else:
-            return None
+    def get_page_id(self):
+        self.page_id = self._request_page_id()
+        return self.page_id
 
     def get_extract(self):
-        url = WikiRequest.BASE_EXTRACT.format(self.page_id)
-        wiki_data = requests.get(url).json()
-        if wiki_data:
-            return wiki_data['query']['pages'][str(self.page_id)]['extract']
-        else:
+        self.extract = self._request_extract()
+        return self.extract
+
+    def _request_page_id(self):
+        url = WikiRequest.BASE_PAGEID.format(self.latitude, self.longitude)
+        wiki_data = requests.get(url)
+        wiki_data = wiki_data.json()
+        try:
+            return wiki_data[
+                'query']['geosearch'][0]['pageid']
+        except KeyError:
+            return None
+
+    def _request_extract(self):
+        url = WikiRequest.BASE_EXTRACT.format(self.get_page_id())
+        wiki_data = requests.get(url)
+        wiki_data = wiki_data.json()
+        try:
+            return wiki_data[
+                'query']['pages'][str(self.page_id)]['extract']
+        except KeyError:
             return None
 
 
 def main():
-    test = WikiRequest(44.0, 1.0)
-
-    print()
-    print("PAGE ID >>>", test.page_id)
-    print()
-    print("EXTRACT >>>", test.extract)
+    test = WikiRequest(48.85837009999999, 2.2944813) #Eiffel Tower
+    print("\nPAGE ID >>>", test.get_page_id(),
+          "\nEXTRACT >>>", test.get_extract())
 
 
 if __name__ == "__main__":
