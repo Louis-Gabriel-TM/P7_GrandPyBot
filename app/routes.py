@@ -32,18 +32,20 @@ def ajax_request():
     coord = gmaps_request.get_coord()
     print("Coordonnées GMaps =", coord)
     
-    wiki_request = WikiRequest(coord['lat'], coord['lng'])
-    pageid = wiki_request.page_id
-    extract = wiki_request.extract # un seul appel de méthode
-    print("PAGE =", pageid, " >>>", extract)
-        
-    response = {
-            'coord': {
-                    'lat': coord['lat'],
-                    'lng': coord['lng'],
-                },
-            'extract': extract
-    }
-    print(response)
+    if coord:      
+        wiki_request = WikiRequest(coord['lat'], coord['lng'])
+        #page_id = wiki_request.page_id
+        extract = wiki_request.extract
+        response = {'coord': {'lat': coord['lat'],'lng': coord['lng']},
+                    'extract': extract
+                   }
+        print(" >>>", extract)
+    else:
+        response = {'coord': {'lat': None,'lng': None},
+                    'extract': None
+                   }
+    
+    print("RESPONSE >>>", response)
+    print("JSONIFIED RESPONSE >>>", response)
 
     return jsonify(response)

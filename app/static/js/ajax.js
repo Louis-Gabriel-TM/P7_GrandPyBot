@@ -1,17 +1,30 @@
 function responseTreatment(data) {
-
     var data = JSON.parse(data);
-
     console.log("Le serveur Python a renvoyé :", data);
+    
+    // LOADER OFF
 
-    initMap(data['coord']);
+    if (data['coord'] !== 'None') {
+        displayRobby("Voici ce que j'ai trouvé Altaira :")
+        initMap(data['coord']);
+    }
 
-    var extract = document.getElementById('extract');
-    extract.textContent = data['extract'];
+    if (data['extract'] !== 'None') {
+        displayRobby(data['extract']);
+    }
 }
 
-function ajaxPost(url, data, callback) {
+$('#submit').on('click', function() {
+    var user_query = document.getElementById('user_query').value;
+    console.log("vous avez saisi : " + user_query);
+    displayAltaira(user_query);
+    ajaxPost('/ajax', user_query, responseTreatment);
+})
 
+function ajaxPost(url, data, callback) {
+    
+    // LOADER ON
+    
     var req = new XMLHttpRequest();
     req.open('POST', url);
       
@@ -31,12 +44,4 @@ function ajaxPost(url, data, callback) {
     req.send(data);
 }
 
-$('#submit').on('click', function() {
 
-    // Capture saisie utilisateur
-    var user_query = document.getElementById('user_query').value;
-
-    console.log("vous avez saisi : " + user_query);
-
-    ajaxPost('/ajax', user_query, responseTreatment);
-})

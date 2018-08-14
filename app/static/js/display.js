@@ -1,7 +1,34 @@
+function displayAltaira(speech) {
+    var chatWindow = document.getElementById('chatwindow');
+
+    var speechZone = document.createElement('div');
+    speechZone.classList.add('altaira');
+    speechZone.textContent = speech;
+
+    chatWindow.appendChild(speechZone);
+}
+
+function displayRobby(speech) {
+    var chatWindow = document.getElementById('chatwindow');
+
+    var speechZone = document.createElement('div');
+    speechZone.classList.add('robby');
+    speechZone.textContent = speech;
+
+    chatWindow.appendChild(speechZone);
+}
+
 function initMap(coord) {
-    
-    var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 12,
+    var chatWindow = document.getElementById('chatwindow');
+
+    var mapZone = document.createElement('div');
+    mapZone.classList.add('map');
+    mapZone.style.display = 'block';
+
+    chatWindow.appendChild(mapZone);
+
+    var map = new google.maps.Map(mapZone, {
+        zoom: 16,
         center: coord,
         /*Google Maps Retro Style*/
         styles: [

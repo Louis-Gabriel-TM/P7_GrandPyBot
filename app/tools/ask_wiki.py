@@ -19,34 +19,32 @@ class WikiRequest:
     def __init__(self, latitude, longitude):
         self.latitude = latitude
         self.longitude = longitude
-        self.page_id = None
-        self.extract = None
+        self.page_id = self.get_page_id()
+        self.extract = self.get_extract()
 
     def get_page_id(self):
-        self.page_id = self._request_page_id()
-        return self.page_id
-
-    def get_extract(self):
-        self.extract = self._request_extract()
-        return self.extract
-
-    def _request_page_id(self):
         url = WikiRequest.BASE_PAGEID.format(self.latitude, self.longitude)
         wiki_data = requests.get(url)
         wiki_data = wiki_data.json()
+        print("\nGET_PAGE_ID >>>", wiki_data)
         try:
             return wiki_data[
                 'query']['geosearch'][0]['pageid']
+        except IndexError:
+            return None
         except KeyError:
             return None
 
-    def _request_extract(self):
-        url = WikiRequest.BASE_EXTRACT.format(self.get_page_id())
+    def get_extract(self):
+        url = WikiRequest.BASE_EXTRACT.format(self.page_id)
         wiki_data = requests.get(url)
         wiki_data = wiki_data.json()
+        print("\nGET_EXTRACT >>>", wiki_data)
         try:
             return wiki_data[
                 'query']['pages'][str(self.page_id)]['extract']
+        except IndexError:
+            return None
         except KeyError:
             return None
 
