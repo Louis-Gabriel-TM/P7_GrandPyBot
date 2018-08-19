@@ -23,9 +23,10 @@ class GMapsRequest:
         try:
             return api_data['results'][0]['geometry']['location']
         except IndexError:
-            return None
+            return ""
         except KeyError:
-            return None
+            return ""
+        return ""
 
     def get_data(self):
         gmaps_data = requests.get(self.url)

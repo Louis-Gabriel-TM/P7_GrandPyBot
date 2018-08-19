@@ -31,9 +31,10 @@ class WikiRequest:
             return wiki_data[
                 'query']['geosearch'][0]['pageid']
         except IndexError:
-            return None
+            return ""
         except KeyError:
-            return None
+            return ""
+        return ""
 
     def get_extract(self):
         url = WikiRequest.BASE_EXTRACT.format(self.page_id)
@@ -44,9 +45,10 @@ class WikiRequest:
             return wiki_data[
                 'query']['pages'][str(self.page_id)]['extract']
         except IndexError:
-            return None
+            return ""
         except KeyError:
-            return None
+            return ""
+        return ""
 
 
 def main():

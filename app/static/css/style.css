@@ -11,7 +11,8 @@ body {
     background-color: black;
     background-repeat: no-repeat;
     background-position: center;
-    color: lightgreen;
+    color: #90EE90;
+    /*color: lightgreen;*/
 }
 
 h1 {
@@ -41,7 +42,7 @@ header {
 }
 
 /* Chat zone */
-#chatwindow, .altaira, .map, .robby, #chatform, input {
+#chatwindow, #ajax-loader, .altaira, .map, .robby, #chatform, input {
     border-radius: 10px;
 }
 
@@ -56,6 +57,11 @@ header {
     margin: 10px 10px 10px 0;
     pading: 50px;
     overflow: auto;
+}
+
+#ajax-loader {
+    width: 100%;
+    margin: 10px;
 }
 
 .altaira, .robby {

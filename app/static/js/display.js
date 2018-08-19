@@ -1,32 +1,41 @@
+function displayLoader() {
+    var chatWindow = document.getElementById('chatwindow')
+    var loaderZone = document.createElement('div');
+    loaderZone.setAttribute('id', 'ajax-loader');
+    var loader = document.createElement('img');
+    loader.setAttribute('src', '../static/img/ajax-loader.gif');
+    loader.setAttribute('alt', "Ajax loader");
+    loaderZone.appendChild(loader);
+    chatWindow.appendChild(loaderZone);
+}
+
+function removeLoader() {
+    var loaderZone = document.getElementById('ajax-loader');
+    loaderZone.remove();
+}
+
 function displayAltaira(speech) {
     var chatWindow = document.getElementById('chatwindow');
-
     var speechZone = document.createElement('div');
     speechZone.classList.add('altaira');
     speechZone.textContent = speech;
-
     chatWindow.appendChild(speechZone);
 }
 
 function displayRobby(speech) {
     var chatWindow = document.getElementById('chatwindow');
-
     var speechZone = document.createElement('div');
     speechZone.classList.add('robby');
     speechZone.textContent = speech;
-
     chatWindow.appendChild(speechZone);
 }
 
 function initMap(coord) {
     var chatWindow = document.getElementById('chatwindow');
-
     var mapZone = document.createElement('div');
     mapZone.classList.add('map');
     mapZone.style.display = 'block';
-
     chatWindow.appendChild(mapZone);
-
     var map = new google.maps.Map(mapZone, {
         zoom: 16,
         center: coord,
@@ -142,9 +151,8 @@ function initMap(coord) {
             }
           ]
         });
-
         var marker = new google.maps.Marker({
             position: coord,
             map: map
-        })
+        });
       }

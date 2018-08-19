@@ -13,12 +13,12 @@ class TestWikiRequest:
         self.eiffel = WikiRequest(48.85837009999999, 2.2944813) # Eiffel Tower
 
     def test_get_pageid(self):
-        assert self.empty.get_page_id() == None
+        assert self.empty.get_page_id() == ""
         assert self.eiffel.get_page_id() == 4641538
 
     def test_get_extract(self):
-        #assert self.empty.get_extract() == None
-        print(self.eiffel.get_extract())
+        #assert self.empty.get_extract() == ""
+        #print(self.eiffel.get_extract())
         
         assert self.eiffel.get_extract() == """Le Jules Verne \
 est un restaurant parisien situé au deuxième étage de la Tour Eiffel \

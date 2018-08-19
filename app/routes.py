@@ -23,11 +23,11 @@ def ajax_request():
 
     user_query = request.data.decode('utf-8')
     print("Contenu de la requête =", user_query)
-    
+
     parser = Parser()
     cleaned_query = parser.clean(user_query)
     print("Requête nettoyée =", cleaned_query)
-    
+
     gmaps_request = GMapsRequest(cleaned_query)
     coord = gmaps_request.get_coord()
     print("Coordonnées GMaps =", coord)
@@ -36,14 +36,17 @@ def ajax_request():
         wiki_request = WikiRequest(coord['lat'], coord['lng'])
         #page_id = wiki_request.page_id
         extract = wiki_request.extract
-        response = {'coord': {'lat': coord['lat'],'lng': coord['lng']},
+        if extract:
+            response = {'coord': {'lat': coord['lat'],'lng': coord['lng']},
                     'extract': extract
-                   }
+                    }
+        else:
+            response = {'coord': {'lat': coord['lat'],'lng': coord['lng']},
+                    'extract': ""
+                    }
         print(" >>>", extract)
     else:
-        response = {'coord': {'lat': None,'lng': None},
-                    'extract': None
-                   }
+        response = ""
     
     print("RESPONSE >>>", response)
     print("JSONIFIED RESPONSE >>>", response)
