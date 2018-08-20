@@ -18,15 +18,15 @@ $('#submit').on('click', function() {
     if (user_query !== "") {
         userValidated(user_query);
     }
-})
+});
 
-document.onkeydown = function handleReturnKey(event) {
+$(document).on('keydown', function(event) {
     var userQuery = document.getElementById('user_query').value;
     var key = event.keyCode;
     if (key === 13 && userQuery !== "") {
         userValidated(userQuery);
     }
-}
+});
 
 function userValidated(userQuery) {
     console.log("vous avez saisi : " + userQuery);

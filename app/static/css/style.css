@@ -1,7 +1,7 @@
 /* GRID DEBUG */
 /*
 [class*="col-"] {
-    border: 1px solid lemonchiffon;
+    border: 1px solid grey;
 }
 */
 
@@ -12,7 +12,6 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     color: #90EE90;
-    /*color: lightgreen;*/
 }
 
 h1 {
@@ -55,7 +54,6 @@ header {
     background-color: #003300;
     height: 600px;
     margin: 10px 10px 10px 0;
-    pading: 50px;
     overflow: auto;
 }
 
@@ -123,4 +121,57 @@ footer {
     margin-top: 20px;
     border-top: solid 2px lightgreen;
     font-size: 0.8em;
+}
+
+
+/* CSS ADJUSTEMENTS FOR TABLETS */
+@media all and (max-device-width: 1280px)
+{
+    /* Chat zone */
+    #chatwindow {;
+        height: 510px;
+    }
+}
+
+
+/* CSS ADJUSTEMENTS FOR SMARTPHONES */
+@media all and (max-device-width: 480px)
+{
+    /* Header zone */
+    #logo {
+        background-image: url("../img/logo-xs.jpg");
+        height: 70px;
+    }
+
+    /* Chat zone */
+    #chatwindow {;
+        height: 440px;
+        margin: 0;
+    }
+
+    .altaira, .robby {
+        font-size: 0.9em;
+    }
+
+    .altaira {
+        left: 20%;
+    }
+
+    .map {
+        height: 120px;
+    }
+
+    #chatform {
+        margin: 10px 0 10px 0;
+        font-size: 1.2em;
+    }
+
+    #submit {
+        font-size: 1.2em;
+    }
+
+    /* Footer zone */
+    footer {
+        margin-top: 10px;
+    }
 }
