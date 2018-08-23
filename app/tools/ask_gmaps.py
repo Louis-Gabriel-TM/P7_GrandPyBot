@@ -30,6 +30,7 @@ class GMapsRequest:
 
     def get_data(self):
         gmaps_data = requests.get(self.url)
+        print("GMAPS DATA >>>", gmaps_data)
         return gmaps_data.json()
 
 
