@@ -42,7 +42,7 @@ function ajaxPost(url, data, callback) {
     req.open('POST', url);
     req.addEventListener('load', function() {
         // A MODIFIER EN PRODUCTION : supprimer req.status === 0
-        if ((req.status >= 200 && req.status < 400) || req.status === 0) {
+        if ((req.status >= 200 && req.status < 400)) {
             callback(req.responseText);
         } else {
             console.error(req.status + " " + req.statusText + " " + url);
