@@ -30,6 +30,7 @@ def ajax_request():
 
     gmaps_request = GMapsRequest(cleaned_query)
     coord = gmaps_request.get_coord()
+    print("GMAPS_KEY =", GMAPS_KEY)
     print("Coordonnées GMaps =", coord)
     
     if coord:      
