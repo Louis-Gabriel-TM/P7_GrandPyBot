@@ -15,3 +15,8 @@ This project was also the occasion for a first approach of *Test Driven Developm
 In fact, you will recognize that *GrandPyBot* is a reformed version of the famous *Robby the Robot* who first appeared in the 1956 sci-fi film [*Forbidden Planet*](https://www.youtube.com/watch?v=j7bXuX7x0pg). ;-)
 
 ## This app needs a Google Maps API key
+
+
+## Screenshot
+
+![A screenshot of grandpybot app](https://github.com/Louis-Gabriel-TM/GrandPyBot/blob/master/demo.jpg)

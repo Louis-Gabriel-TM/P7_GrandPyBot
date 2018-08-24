@@ -13,7 +13,6 @@ class GMapsRequest:
     URL_BASE = "https://maps.googleapis.com/maps/api/geocode/json?address="
 
     def __init__(self, parsed_request):
-        #print("GMAPS_KEY =", GMAPS_KEY)
         self.question = ".".join(parsed_request.split())
         self.url = GMapsRequest.URL_BASE + self.question + \
             "&key=" + GMAPS_KEY
@@ -32,9 +31,6 @@ class GMapsRequest:
         gmaps_data = requests.get(self.url)
         print("GMAPS DATA >>>", gmaps_data.json())
         return gmaps_data.json()
-
-
-#class Mock
 
 
 def main():
