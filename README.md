@@ -19,4 +19,4 @@ In fact, you will recognize that *GrandPyBot* is a reformed version of the famou
 
 ## Screenshot
 
-![A screenshot of grandpybot app](https://github.com/Louis-Gabriel-TM/GrandPyBot/blob/master/demo.jpg)
+![A screenshot of grandpybot app](https://github.com/Louis-Gabriel-TM/P7_GrandPyBot/blob/master/demo.jpg)
