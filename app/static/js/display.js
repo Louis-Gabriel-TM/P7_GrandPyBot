@@ -1,4 +1,13 @@
-function displayLoader() {
+/*
+Robby the GrandPy Bot,
+7th project of OC Python Developer Path.
+Author: Loïc Mangin
+*/
+
+
+function displayLoader()
+// Display gif loader (used during AJAX request)
+{
     var chatWindow = document.getElementById('chatwindow')
     var loaderZone = document.createElement('div');
     loaderZone.setAttribute('id', 'ajax-loader');
@@ -9,12 +18,16 @@ function displayLoader() {
     chatWindow.appendChild(loaderZone);
 }
 
-function removeLoader() {
+function removeLoader()
+// Remove gif loader when AJAX request finished
+{
     var loaderZone = document.getElementById('ajax-loader');
     loaderZone.remove();
 }
 
-function displayAltaira(speech) {
+function displayAltaira(speech)
+// Display a chat bubble in 'altaira' style
+{
     var chatWindow = document.getElementById('chatwindow');
     var speechZone = document.createElement('div');
     speechZone.classList.add('altaira');
@@ -22,7 +35,9 @@ function displayAltaira(speech) {
     chatWindow.appendChild(speechZone);
 }
 
-function displayRobby(speech) {
+function displayRobby(speech)
+// Display a chat bubble in 'robby' style
+{
     var chatWindow = document.getElementById('chatwindow');
     var speechZone = document.createElement('div');
     speechZone.classList.add('robby');
@@ -30,7 +45,9 @@ function displayRobby(speech) {
     chatWindow.appendChild(speechZone);
 }
 
-function initMap(coord) {
+function initMap(coord)
+// Display the Google Map and marker corresponding to coordinates
+{
     var chatWindow = document.getElementById('chatwindow');
     var mapZone = document.createElement('div');
     mapZone.classList.add('map');
@@ -39,7 +56,7 @@ function initMap(coord) {
     var map = new google.maps.Map(mapZone, {
         zoom: 16,
         center: coord,
-        /*Google Maps Retro Style*/
+        /* Google Maps Retro Style */
         styles: [
             {"elementType": "geometry", "stylers": [{"color": "#ebe3cd"}]},
             {"elementType": "labels.text.fill", "stylers": [{"color": "#523735"}]},

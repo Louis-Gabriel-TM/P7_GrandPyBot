@@ -1,9 +1,17 @@
-/* GRID DEBUG */
+/*
+Robby the GrandPy Bot,
+7th project of OC Python Developer Path.
+Author: Loïc Mangin
+*/
+
+
+/* FOR GRID DEBUG */
 /*
 [class*="col-"] {
     border: 1px solid grey;
 }
 */
+
 
 /* body, h1-h6 */
 body {

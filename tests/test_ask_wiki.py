@@ -2,6 +2,13 @@
 # coding: utf-8
 
 
+"""
+Robby the GrandPy Bot,
+7th project of OC Python Developer Path.
+Author: Loïc Mangin
+"""
+
+
 import pytest
 import requests_mock
 
@@ -11,17 +18,24 @@ from app.tools.ask_wiki import WikiRequest
 # TESTS MAKING FAKE REQUESTS (Mocks) :
 
 def test_empty():
+    """Test an empty WikiRequest with a mocked API response
+    """
     with requests_mock.Mocker() as m:
         empty = WikiRequest(None, None)
         m.get(empty.url_page_id, text="{}")
         assert empty.get_page_id() == ""
 
+
 def test_eiffel():
+    """Test a basic WikiRequest containing Eiffel Tower coordinates
+    with a mocked API response containing Wikipedia corresponding page id
+    """
     with requests_mock.Mocker() as m:
-        eiffel = WikiRequest(48.85837009999999, 2.2944813) # Eiffel Tower
+        eiffel = WikiRequest(48.85837009999999, 2.2944813)
         result = '{"query": {"geosearch": [{"pageid": 4641538}]}}'
         m.get(eiffel.url_page_id, text=result)
         assert eiffel.get_page_id() == 4641538
+
 
 '''
 # TESTS MAKING REAL REQUESTS :
@@ -36,9 +50,7 @@ class TestWikiRequest:
         assert self.eiffel.get_page_id() == 4641538
 
     def test_get_extract(self):
-        #assert self.empty.get_extract() == ""
-        #print(self.eiffel.get_extract())
-        
+        assert self.empty.get_extract() == ""      
         assert self.eiffel.get_extract() == """Le Jules Verne \
 est un restaurant parisien situé au deuxième étage de la Tour Eiffel \
 et spécialisé en cuisine française classique."""
