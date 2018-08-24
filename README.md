@@ -14,12 +14,12 @@ This project was also the occasion for a first approach of *Test Driven Developm
 
 In fact, you will recognize that *GrandPyBot* is a reformed version of the famous *Robby the Robot* who first appeared in the 1956 sci-fi film [*Forbidden Planet*](https://www.youtube.com/watch?v=j7bXuX7x0pg). ;-)
 
-# This app needs a Google API key
+### This app needs a Google API key
 
 This project needs a valid *Google* API key to use the *Geocoding API* and the *Maps JavaScript API*.
 
-The application access to this key as an environment variable in __/app/tools/credentials.py__.
+The application access to this key as an environment variable in the __/app/tools/credentials.py__ script.
 
-# Screenshot
+### Screenshot
 
 ![A screenshot of grandpybot app](https://github.com/Louis-Gabriel-TM/P7_GrandPyBot/blob/master/demo.jpg)
