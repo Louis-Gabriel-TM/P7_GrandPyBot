@@ -26,4 +26,4 @@ The application access to this key as an environment variable in the __/app/tool
 
 ### The Trello dashboard used for this project :
 
-![Trello dashboard](https://github.com/Louis-Gabriel-TM/P7_PurBeurre/blob/master/images/P7%20-%20Capture%20dashboard%20Trello.JPG)
+![Trello dashboard](https://github.com/Louis-Gabriel-TM/P7_GrandPyBot/blob/master/images/P7%20-%20Capture%20dashboard%20Trello.JPG)
